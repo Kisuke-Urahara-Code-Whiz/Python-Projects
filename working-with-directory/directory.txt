@@ -1,0 +1,11 @@
+./ Next folder    /    /    /    /    / - Relative file path
+
+/Root/     /     /      / - Absolute file path
+
+../ Parent folder/       /         /  - Relative file path but backwards
+
+file name - relative file path in same folder (./file)
+
+readlines - goes to the file and take each line as a list element
+
+strip - String method that is like the trim method in Java
