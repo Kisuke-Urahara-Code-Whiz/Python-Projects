@@ -8,11 +8,11 @@ class Blackjack:
     def __init__(self):
         print("Welcome to Blackjack")
         self.a = [cards[random.randint(0,l-1)], cards[random.randint(0,l-1)]]
-        self.d = [cards[random.randint(0,l-1)]]
+        self.d = [cards[random.randint(0,l-1)], cards[random.randint(0,l-1)]]
         self.sum = 0
         self.deal = 0
         print(f"You have : {self.a}")
-        print(f"The dealer has : {self.d}")
+        print(f"The dealer has : [{self.d[0]},something]")
 
     def calculate(self):
         for i in self.a:
@@ -30,18 +30,21 @@ class Blackjack:
         while self.sum<17:
             c= input("Press s for Stand / Press h for Hit : \n")
             if c=="s":
+                print(f"The dealer has : {self.d}")
                 break
             if c=="h":
                 self.sum = 0
                 self.a.append(cards[random.randint(0,l-1)])
                 self.calculate()
-                print(f"You have : {self.a}")
 
         if self.sum == 21:
+            print(f"You have : {self.a}")
             print("The match is yours. You hit a blackjack")
         elif self.sum>21:
+            print(f"You have : {self.a}")
             print("You got busted loser")
         else:
+            print("Your turn ends")
             self.dealing()
 
     def dealsum(self):
@@ -56,6 +59,7 @@ class Blackjack:
                 self.deal+=i
 
     def dealing(self):
+        print(f"The dealer has : {self.d}")
         self.dealsum()
         while self.deal<17:
             self.d.append(cards[random.randint(0,l-1)])
@@ -68,6 +72,7 @@ class Blackjack:
         elif self.deal>21:
             print("You won by luck. The dealer has been busted")
         else:
+            print("Dealer turn ends")
             self.death_round()
 
     def death_round(self):

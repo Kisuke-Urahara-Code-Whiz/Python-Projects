@@ -51,11 +51,11 @@ class Snake:
          if self.c[0].heading() != 180:
              self.c[0].setheading(0)
 
-     def cut(self):
-         for i in self.c[1:]:
-             if self.head.distance(i)<10:
-                 for j in range(len(self.c)-1,self.c.index(i),-1):
-                     self.c[j].hideturtle()
-                     self.c.pop(j)
+     # def cut(self):
+     #     for i in self.c[1:]:
+     #         if self.head.distance(i)<10:
+     #             for j in range(len(self.c)-1,self.c.index(i),-1):
+     #                 self.c[j].hideturtle()
+     #                 self.c.pop(j)
 
 

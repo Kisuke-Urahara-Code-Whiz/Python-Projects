@@ -40,13 +40,13 @@ while on:
         sb.game_over()
         on = False
 
-    snake.cut()
+    # snake.cut()
 
-    # for i in snake.c[1:]:
-    #     if snake.head.distance(i)<10:
-    #         on = False
-    #         sb.game_over()
-    #         break
+    for i in snake.c[1:]:
+        if snake.head.distance(i)<10:
+            on = False
+            sb.game_over()
+            break
 
 
 

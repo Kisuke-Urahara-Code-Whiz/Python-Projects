@@ -1,3 +1,4 @@
+from itertools import filterfalse
 from turtle import Turtle, Screen
 import random
 
@@ -17,7 +18,27 @@ for turtle_index in range(0, 6):
     new_turtle.goto(x=-230, y=y_positions[turtle_index])
     all_turtles.append(new_turtle)
 
-if user_bet:
+g_over = Turtle()
+g_over.color("Black")
+g_over.hideturtle()
+g_over.penup()
+
+checkster = 0
+for z in colors:
+    if user_bet != z:
+        checkster+=1;
+
+bet_on = False
+if checkster==5:
+    bet_on=True
+
+if bet_on == False:
+    g_over.write("Race not held because of wrong option",align="center", font=("Arial", 18, "normal"))
+
+
+
+
+if bet_on:
     is_race_on = True
 
 while is_race_on:
@@ -28,8 +49,10 @@ while is_race_on:
             winning_color = turtle.pencolor()
             if winning_color == user_bet:
                 print(f"You've won! The {winning_color} turtle is the winner!")
+                g_over.write("You Won!!!!!", align="center", font=("Arial", 22, "normal"))
             else:
                 print(f"You've lost! The {winning_color} turtle is the winner!")
+                g_over.write("Loser", align="center", font=("Arial", 22, "normal"))
 
         #Make each turtle move a random amount.
         rand_distance = random.randint(0, 10)
